@@ -1,36 +1,35 @@
-// Day 1
-// import Button from './DayOne/Button'
+import { useState } from "react";
 
-// Part 2
-// import Counter from './DayOne/PartTwo/Counter'
-// import LoginStatus from './DayOne/PartTwo/LoginStatus'
-// import ThemeToggle from './DayOne/PartTwo/ThemeToggle'
-
-
-// Part 3
-import Counter from "./DayOne/PartThree/Counter"
-import CounterState from "./DayOne/PartThree/CounterState"
-
+import Button from "./DayOne/Button";
+import AdminDashboard from "./DayOnePartTwo/AdminDashboard";
+import Login from "./DayOnePartTwo/Login";
+import UserDashboard from "./DayOnePartTwo/UserDashboard";
 
 function App() {
+  const [role, setRole] = useState("null"); // null | "admin" | "user"
+
+
+  function handleLogout() {
+    setRole(null);
+  }
+
+  let content;
+
+  if (!role) {
+    content = <Login setRole={setRole} />;
+  } else if (role === "admin") {
+    content = <AdminDashboard onLogout={handleLogout} />;
+  } else {
+    content = <UserDashboard onLogout={handleLogout} />;
+  }
 
   return (
     <>
-      {/* PART 1 */}
       {/* <Button page="Home" />
       <Button page="About" /> */}
-
-      {/* PART 2 */}
-      {/* <Counter />
-      <LoginStatus />
-      <ThemeToggle /> */}
-
-      {/* PART 3 */}
-      <Counter />
-      <CounterState />
-
+      {content}
     </>
-  )
+  );
 }
 
-export default App
+export default App;

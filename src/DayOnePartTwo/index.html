@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login</title>
+    <style>
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- LOGIN -->
+    <div id="login">
+        <h2>Login</h2>
+        <input id="username" placeholder="Username" />
+        <input id="password" type="password" placeholder="Password" />
+        <button onclick="login()">Login</button>
+        <p id="error" style="color:red;"></p>
+    </div>
+
+    <!-- ADMIN DASHBOARD -->
+    <div id="adminDashboard" class="hidden">
+        <h2>Admin Dashboard</h2>
+        <p>Manage users, settings, reports</p>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <!-- USER DASHBOARD -->
+    <div id="userDashboard" class="hidden">
+        <h2>User Dashboard</h2>
+        <p>View profile, orders</p>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
